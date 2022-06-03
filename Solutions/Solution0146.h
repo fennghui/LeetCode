@@ -48,7 +48,7 @@ public:
                 // 逐出
                 int key_temp = this->myList.back().first;
                 this->myList.pop_back();
-                this->uMap.erase(this->uMap.find(key_temp));
+                this->uMap.erase(key_temp);
             }
             this->myList.push_front(make_pair(key,value));
             this->uMap[key] = this->myList.begin();
