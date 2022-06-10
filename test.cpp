@@ -3,28 +3,15 @@
 //
 
 #include <iostream>
-#include <set>
+#include <vector>
 
 using namespace std;
 
-int main ()
-{
-    set<int> myset;
-    set<int>::iterator it;
-
-    myset = {10, 20, 30, 40};
-
-    cout<<"删除元素之前: \n";
-    for (it=myset.begin(); it!=myset.end(); ++it){
-        cout << *it<< '\n';
-    }
-
-    cout <<"删除" <<myset.erase (40) << endl;//删除指定值
-
-    cout<<"\n删除元素之后: \n";
-    for (it=myset.begin(); it!=myset.end(); ++it){
-        cout << *it<< '\n';
-    }
-
-    return 0;
-}
+//int main ()
+//{
+//    vector<int> candy(10, 1);
+//    for (size_t i = 5; i > 0; --i) {
+//       cout<< i << " ";
+//    }
+//    return 0;
+//}
