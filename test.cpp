@@ -9,9 +9,8 @@ using namespace std;
 
 //int main ()
 //{
-//    vector<int> candy(10, 1);
-//    for (size_t i = 5; i > 0; --i) {
-//       cout<< i << " ";
-//    }
+//    char a[2] = {2,3};
+//    if(((a[1] >> 1) & 0x1) == 0x1)
+//        cout<<"1"<<endl;
 //    return 0;
 //}
