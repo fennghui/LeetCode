@@ -25,22 +25,17 @@ public:
                 subChar.emplace(s[i]);
             } else {
                 //找到重复的，将prev指针定位到重复的元素上
-                if ((i - prev) > maxSubLen) {
-                    maxSubLen = i - prev;
-                }
+                maxSubLen = max(i - prev, maxSubLen);
                 for (int j = prev; j < i; ++j) {
-                    if(s[j]==s[i]){
-                        prev = j+1;
+                    if (s[j] == s[i]) {
+                        prev = j + 1;
                         break;
-                    }else{
-                        subChar.erase(s[j]);
-                    };
+                    }
+                    subChar.erase(s[j]);
                 }
             }
         }
-        if ((n - prev) > maxSubLen) {
-            maxSubLen = n - prev;
-        }
+        maxSubLen = max(n - prev, maxSubLen);
         return maxSubLen;
     }
 };
