@@ -17,7 +17,7 @@ public:
     int lengthOfLongestSubstring(string s) {
         int maxSubLen = 0;
         int prev = 0;
-        set<char> subChar;
+        unordered_set<char> subChar;
         int n = s.size();
         for (int i = 0; i < n; ++i) {
             if (subChar.find(s[i]) == subChar.end()) {
