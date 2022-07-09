@@ -15,31 +15,19 @@
 class Solution {
 public:
     int findNthDigit(int n) {
-        if (n <= 9)
-            return n;
-        long cur_multi = 10;
-        long cur_value = cur_multi;
-        int cur_bit = 2;
-        n = n - 9;
-        while (n > 0) {
-            long num = cur_multi * cur_bit * 9;
-            if (n > num) {
-                n -= num;
-                cur_multi *= 10;
-                cur_value = cur_multi;
-                cur_bit++;
-            } else {
-                int a = n / cur_bit;
-                int r = n % cur_bit;
-                if (r == 0) {
-                    return (cur_value + a - 1) % 10;
-                } else {
-                    string str_ = to_string(cur_value + a);
-                    return str_[r-1] - '0';
-                }
-            }
+        long cur_value = 1;
+        int cur_bit = 1;
+        long cnt = cur_value * cur_bit * 9;
+        while (n > cnt) {
+            n -= cnt;
+            cur_value *= 10;
+            cur_bit++;
+            cnt = cur_value * cur_bit * 9;
         }
-        return 0;
+        n--;
+        long a = n / cur_bit;
+        long r = n % cur_bit;
+        return to_string(cur_value + a)[r] - '0';
     }
 };
 
