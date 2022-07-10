@@ -96,5 +96,60 @@ void output(TreeNode* root)
     }
 }
 
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+        left = NULL;
+        right = NULL;
+    }
+
+    Node(int _val, Node* _left, Node* _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+
+    static Node* initTree(vector<string>& vec)
+    {
+        queue<Node*> qu;
+        Node* root = new Node(atoi(vec[0].c_str()));
+        int i = 1;
+        qu.push(root);
+        while (!qu.empty())
+        {
+            int len = qu.size();
+            while (len--)
+            {
+                Node* node = qu.front();
+                qu.pop();
+                if (vec[i] != "null")
+                {
+                    node->left = new Node(atoi(vec[i].c_str()));
+                    qu.push(node->left);
+                }
+                i++;
+                if (i == vec.size())
+                    return root;
+                if (vec[i] != "null")
+                {
+                    node->right = new Node(atoi(vec[i].c_str()));
+                    qu.push(node->right);
+                }
+                i++;
+                if (i == vec.size())
+                    return root;
+            }
+        }
+        return root;
+    }
+};
+
 
 #endif //FH_A01_COMMON_H
