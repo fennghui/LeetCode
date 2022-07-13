@@ -13,6 +13,7 @@
 //若队列为空，pop_front 和 max_value 需要返回 -1
 // 1,4,2,5,7,3
 // 1,4,5,7
+// 单调双端队列
 
 class MaxQueue {
 public:
