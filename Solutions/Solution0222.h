@@ -14,27 +14,28 @@
 
 class Solution {
 public:
-    int countNodes(TreeNode* root) {
-        if(root == nullptr)
+    int countNodes(TreeNode *root) {
+        if (root == nullptr)
             return 0;
         // 求左树的高度
         int heightL = height(root->left);
         // 求右树的高度
         int heightR = height(root->right);
         int num = 0;
-        if(heightL == heightR){
+        if (heightL == heightR) {
             num = countNodes(root->right);
-            return num + (1<<heightL);
-        }else{
+            return num + (1 << heightL); // 利用满二叉树的性质
+        } else {
             num = countNodes(root->left);
-            return num + (1<<heightR);
+            return num + (1 << heightR);
         }
     }
+
     // 对完全二叉树的左孩子一直遍历，即可得到树的高度，log(n)
-    int height(TreeNode * root){
+    int height(TreeNode *root) {
         int h = 0;
-        TreeNode* p = root;
-        while(p != nullptr){
+        TreeNode *p = root;
+        while (p != nullptr) {
             ++h;
             p = p->left;
         }
