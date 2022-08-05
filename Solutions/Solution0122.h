@@ -14,6 +14,10 @@
 //
 //返回 你能获得的 最大 利润 。
 
+
+/**
+ * 这道题和摆动序列不同，摆动序列需要知道有几个区间，需要知道高低峰值的个数，而这道题只需要叠加正利润即可
+ */
 class Solution {
 public:
     int maxProfit(vector<int> &prices) {
