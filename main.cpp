@@ -1,12 +1,13 @@
 #include <iostream>
-#include "Solutions/Solution0416.h"
+#include "2nd/2. 两数相加.h"
 
 int main() {
 
 
     Solution solution;
     vector<int> vec2{1,5,11,5};
-    auto result = solution.canPartition(vec2);
+    vector<string> vecStr{"leet","code"};
+    auto result = solution.wordBreak("leetcode", vecStr);
     cout<<result<<endl;
 
 //    for (int i = 0; i < result.size(); ++i){
