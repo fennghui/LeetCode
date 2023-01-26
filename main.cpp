@@ -1,5 +1,5 @@
 #include <iostream>
-#include "2nd/43. 字符串相乘.h"
+#include "2nd/56. 合并区间.h"
 
 int main() {
 
@@ -9,19 +9,20 @@ int main() {
     vector<string> vecStr{"leet","code"};
     string num1("123");
     string num2("456");
-    auto result = solution.multiply(num1,num2);
-    cout<<result<<endl;
+    vector<vector<int>> vec3{{0,0},{1,2},{5,5},{2,4},{3,3},{5,6},{5,6},{4,6},{0,0},{1,2},{0,2},{4,5}};
+    auto result = solution.merge(vec3);
+//    cout<<result<<endl;
 
 //    for (int i = 0; i < result.size(); ++i){
 //        cout<<result[i]<<endl;
 //    }
 
-//    for (int i = 0; i < result.size(); ++i){
-//        for(int j=0;j<result[i].size();j++){
-//            cout<<result[i][j]<<" ";
-//        }
-//        cout<<endl;
-//    }
+    for (int i = 0; i < result.size(); ++i){
+        for(int j=0;j<result[i].size();j++){
+            cout<<result[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 
 
     return 0;
