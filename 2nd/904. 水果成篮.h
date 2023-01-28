@@ -7,39 +7,37 @@
 
 #include "../Common.h"
 
+/**
+ * 滑动窗口
+ */
+
 class Solution {
 public:
     int totalFruit(vector<int> &fruits) {
         int n = fruits.size();
         int res = 0;
-        set<int> fruitSet;
-        int curStart = 0;
-        for (int i = 0; i < n;) {
-            if (fruitSet.size() < 2 && fruitSet.find(fruits[i]) == fruitSet.end()){
-                /// 构造可以装入的水果类型
-                fruitSet.emplace(fruits[i]);
-                i++;
-            }else{
-                if(fruits.size() == 2){
-                    /// 两种情况
-                    /// 1. 下一个水果是果篮中可以放入的
-                    if(fruitSet.find(fruits[i]) != fruitSet.end()){
-
-                    }else{
-                        /// 2. 下一个水果是新出现的
-                        if(i - curStart > res){ /// 更新最多可以采摘的水果数量
-                            res = i - curStart;
-                        }
-                        curStart = i; /// 这个更新的不对
-                        fruitSet.clear();
-                        fruitSet.emplace(fruits[i-1]);
-                        fruitSet.emplace(fruits[i]);
+        unordered_map<int, int> fruit_num_map;
+        int left = 0;
+        int right = 0;
+        while (right < n) {
+            fruit_num_map[fruits[right]]++;
+            if (fruit_num_map.size() > 2) {
+                /// 更新最大值
+                res = max(res, right - left);
+                /// 移动窗口的左边
+                while (fruit_num_map.size() > 2) {
+                    fruit_num_map[fruits[left]]--;
+                    if (fruit_num_map[fruits[left]] == 0) {
+                        fruit_num_map.erase(fruits[left]);
                     }
-
+                    left++;
                 }
-
             }
+            right++;
         }
+
+        res = max(res, right - left);
+        return res;
     }
 };
 
