@@ -1,5 +1,5 @@
 #include <iostream>
-#include "2nd/1124. 表现良好的最长时间段.h"
+#include "2nd/343. 整数拆分.h"
 
 int main() {
 
@@ -10,7 +10,7 @@ int main() {
     string num1("123");
     string num2("456");
     vector<vector<int>> vec3{{1,2,3},{4,5,6},{7,8,9}};
-    auto result = solution.longestWPI(vec2);
+    auto result = solution.integerBreak(10);
     cout<<result<<endl;
 
 //    for (int i = 0; i < result.size(); ++i){
