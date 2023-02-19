@@ -13,7 +13,7 @@ public:
         /// 以 i,j 为右下角的最大正方形边长
         int col = matrix[0].size();
         int row = matrix.size();
-        int maxEdge = 0
+        int maxEdge = 0;
         vector<vector<int>> dp(row, vector<int>(col, 0));
         for (int i = 0; i < col; ++i) {
             if (matrix[0][i] == '1') {
