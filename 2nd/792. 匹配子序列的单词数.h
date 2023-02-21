@@ -29,6 +29,8 @@ public:
                         lastIndex = *value;
                         flag = true;
                     }
+                    /// 下面超时，考虑二分找第一个大于 lastIndex 的值，但是这个二分还是写不对，干脆用
+                    /// STL 提供的函数 upper_bound 了，但是二分还是得会
 //                    for (auto &index: mp[letter]) { /// 遍历每一个可能的 index
 //                        if (index > lastIndex) {
 //                            lastIndex = index;
