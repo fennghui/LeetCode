@@ -19,17 +19,7 @@ public:
                 ++poppedIndex;
             }
         }
-
-        while(!myStack.empty() && poppedIndex < popped.size()){
-            if(popped[poppedIndex] == myStack.top()){
-                myStack.pop();
-                ++poppedIndex;
-            }else{
-                return false;
-            }
-        }
-
-        return true;
+        return myStack.empty();
     }
 };
 
